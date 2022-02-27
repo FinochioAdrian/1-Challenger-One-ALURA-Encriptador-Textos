@@ -40,7 +40,7 @@ function encriptar(mensaje) {
     Solo letras minusculas
     No se permite acentuación de palabras 
     */
-    return mensaje.replace('e', 'enter').replace('i', 'imes').replace('a', 'ai').replace('o', 'ober').replace('u', 'ufat');
+    return mensaje.replaceAll('e', 'enter').replaceAll('i', 'imes').replaceAll('a', 'ai').replaceAll('o', 'ober').replaceAll('u', 'ufat');
 }
 
 function mostrarMesaje(mensaje) {
@@ -60,14 +60,14 @@ function desencriptar(mensaje){
     No se permite acentuación de palabras   
     */
 
-    return mensaje.replace('enter', 'e').replace('imes', 'i').replace('ai', 'a').replace('ober', 'o').replace('ufat', 'u');
+    return mensaje.replaceAll('enter', 'e').replaceAll('imes', 'i').replaceAll('ai', 'a').replaceAll('ober', 'o').replaceAll('ufat', 'u');
 }
 
 botonCopiar.addEventListener('click',  
     async function write() {
         try {
             let text = await navigator.clipboard.writeText(document.querySelector("#msg").value);
-            console.log("Texto escrito");
+            
         } catch(error) {
             console.log(`Ocurrió un error: ${error}`);
         }
