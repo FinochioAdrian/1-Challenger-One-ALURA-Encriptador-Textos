@@ -5,12 +5,12 @@
 }
 
 body {
-  background-color: lightgray;
+  background-color: #cccb8461;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 nav {
-  background: #d36161ce;
+  background: #f6cd41c2;
   width: auto;
   height: 20vh;
   display: flex;
