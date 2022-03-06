@@ -12,9 +12,10 @@
 </head>
 
 <body>
-  <nav>
-    <div>
-      <h1 class="titulo">Desencriptador de código secreto</h1>
+  <nav class="menu">
+    <div class="menu__container">
+      <img class="menu__img" src="img/logo/logo.png" alt="logo">
+      <h1 class="menu__titulo">Desencriptador de código secreto</h1>
 
     </div>
 
@@ -26,6 +27,9 @@
     <section class="form box">
       <form action="">
         <label for="input-texto">Solo letras minúsculas, sin acento</label>
+
+        <span id="span-error" class="hidden">Debe de ingresar solo palabras en minúsculas y sin acento</span>
+        
         <input class="text-input" type="text" name="input-texto" id="input-texto"></input>
 
         <div class="flex-buttom">
@@ -46,8 +50,12 @@
 
   </main>
   <footer>
-    <hr>
-    <p class="by">By Finochio Adrian <a href="mailto:finochio.adrian@oulook.com">finochio.adrian@oulook.com</a> </p>
+    <div class="footer_container">
+      <img class="footer__imagen" src="img/footer/Finochio Adrian.jpg" alt="">
+      <p class="footer__by">By Finochio Adrian <a class="footer__link"
+          href="mailto:finochio.adrian@oulook.com">finochio.adrian@oulook.com</a> </p>
+
+    </div>
   </footer>
 
   <script src="js/script.js"></script>

@@ -5,6 +5,7 @@ var botonEncriptar, botonDesencriptar, botonCopiar, nuevoMensaje;
 botonEncriptar = document.querySelector("#btn-encriptar");
 botonDesencriptar = document.querySelector("#btn-desencriptar");
 botonCopiar = document.querySelector("#btn-copy");
+var spanError = document.querySelector("#span-error");
 
 function obtenerDatos() {
     let input = document.querySelector("#input-texto");
@@ -16,7 +17,8 @@ function obtenerDatos() {
 botonEncriptar.addEventListener("click", (event) => {
     event.preventDefault();
     nuevoMensaje = obtenerDatos();
-    let mensajeEncriptado = encriptar(nuevoMensaje);
+    
+    let mensajeEncriptado = encriptar(verificarMinuscula(nuevoMensaje));
     console.log(mensajeEncriptado);
     mostrarMesaje(mensajeEncriptado);
 
@@ -24,7 +26,8 @@ botonEncriptar.addEventListener("click", (event) => {
 botonDesencriptar.addEventListener("click", (event) => {
     event.preventDefault();
     nuevoMensaje = obtenerDatos();
-    let mensajeDesencriptado = desencriptar(nuevoMensaje);
+    verificarMinuscula(nuevoMensaje);
+    let mensajeDesencriptado = desencriptar(verificarMinuscula(nuevoMensaje));
     console.log(mensajeDesencriptado);
     mostrarMesaje(mensajeDesencriptado);
 
@@ -73,3 +76,30 @@ botonCopiar.addEventListener('click',
         }
     
 });
+
+
+function verificarMinuscula(mensaje){
+    const regexp=/[A-Z]|Ñ|á|é|í|ó|ú/g;
+    if (regexp.test(mensaje)){
+        
+        mostrarMensajeError();
+        setTimeout(ocultarMensajeError, 3000)
+        
+        return "";
+    }
+    else{
+        return mensaje;
+    }
+}; 
+
+function mostrarMensajeError() {
+
+
+    spanError.className = "mensaje-error";
+
+
+}
+
+function ocultarMensajeError() {
+    spanError.className = "hidden";
+}
